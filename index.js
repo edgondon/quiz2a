@@ -24,8 +24,8 @@ $('.button-startq').click(function () { //begin quiz and questions
 STORE = [
     
 {
-    question: 'Who was the first Roman Emperor YO?',
-    questionOptions: ['a.) Julius Caesar YEEE', 'b.) Mark Antony yo', 'c.) Augustus yo', 'd.) Cleopatra yo'],
+    question: 'Who was the first Roman Emperor?',
+    questionOptions: ['a.) Julius Caesar', 'b.) Mark Antony', 'c.) Augustus', 'd.) Cleopatra'],
     correct: 'c.) Augustus'
 },
 
@@ -101,12 +101,11 @@ function score() {
     return score;
 };
 
-
+let i = 0;
 
 
 // goes through the questions
 function generateQuestion() {
-    let i = 0;
     $(".questionQh").replaceWith(STORE[i].question);
     $(".answerA").replaceWith(STORE[i].questionOptions[0]);
     $(".answerB").replaceWith(STORE[i].questionOptions[1]);
@@ -119,10 +118,11 @@ function generateQuestion() {
 
 
 function selectAnswer() {
-    $("section.question-page").click(function (event) {
+    $(".options").on('change', function (event) {
     console.log(`ANSWER IS SELECTED`);
-
-    if ($('input[class=yes]').is(':checked')) {
+    let ya = $('input[name=option]:checked', '#gotcha').val();
+    console.log(ya);
+    if (aa=(STORE[i].correct)) {
         correct();
         
     }
