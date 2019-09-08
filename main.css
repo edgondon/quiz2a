@@ -12,12 +12,17 @@ h1 {
     font-size: 50px;
 }
 
+body {
+    background-color: rgb(175, 240, 208);
+  }
+
 .mainpic {
     height: 400px;
     width: 50%;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 50px;
 }
 
 .maindescrip {
@@ -27,4 +32,48 @@ h1 {
     padding-bottom: 50px;
     font-size: 25px;
     color: darkblue; 
+}
+
+
+
+.button-startq {
+    background-color: turquoise;
+    border: 1px solid black;
+    color: black;
+    margin-top: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    margin: auto;
+    padding: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.select-answer-right {
+background-color: turquoise;
+border: 1px solid black;
+color: black;
+margin-top: 30px;
+text-align: center;
+text-decoration: none;
+display: block;
+margin: auto;
+padding: 5px;
+font-size: 16px;
+cursor: pointer;
+}
+
+.select-answer-wrong {
+background-color: turquoise;
+border: 1px solid black;
+color: black;
+margin-top: 30px;
+text-align: center;
+text-decoration: none;
+display: block;
+margin: auto;
+padding: 5px;
+font-size: 16px;
+cursor: pointer;
 }

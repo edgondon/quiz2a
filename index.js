@@ -10,67 +10,77 @@ $(document).ready( function() {
 
 });
 
+$('.button-startq').click(function () { //begin quiz and questions
+    $('.intro').hide();
+    $('.question-page').show();
+    $('.status-score').show();
+    generateQuestion();
+
+   
+});
+
+
 
 STORE = [
     
 {
-    question: 'Who was the first Roman Emperor?',
-    questionOptions: ['Julius Caesar', 'Mark Antony', 'Augustus', 'Cleopatra'],
-    correct: 'Augustus'
+    question: 'Who was the first Roman Emperor YO?',
+    questionOptions: ['a.) Julius Caesar YEEE', 'b.) Mark Antony yo', 'c.) Augustus yo', 'd.) Cleopatra yo'],
+    correct: 'c.) Augustus'
 },
 
 {
     question: 'Who was the longest serving Roman Emperor?',
-    questionOptions: ['Augustus', 'Trajan', 'Agrippa', 'Constantine'],
-    correct: 'Augustus'
+    questionOptions: ['a.) Augustus', 'b.) Trajan', 'c.) Agrippa', 'd.) Constantine'],
+    correct: 'a.) Augustus'
 },
 
 {
     question: 'Who was the first Christian Roman Emperor?',
-    questionOptions: ['Maxentius', 'Licinius I', 'Vedius', 'Constantine'],
-    correct: 'Constantine'
+    questionOptions: ['a.) Maxentius', 'b.) Licinius I', 'c.) Vedius', 'd.) Constantine'],
+    correct: 'd.) Constantine'
 },
 
 {
     question: 'Which Emperor Initiated the Construction of the Colosseum?',
-    questionOptions: ['Titus', 'Domitian', 'Vespasian', 'Toto'],
-    correct: 'Vespasian'
+    questionOptions: ['a.) Titus', 'b.) Domitian', 'c.) Vespasian', 'd.) Toto'],
+    correct: 'c.) Vespasian'
 },
 
 {
     question: 'Which Emperor began the Conquest of Britain?',
-    questionOptions: ['Domitian', 'Claudius', 'Maxentius', 'Agrippa'],
-    correct: 'Claudius'
+    questionOptions: ['a.) Domitian', 'b.) Claudius', 'c.) Maxentius', 'd.) Agrippa'],
+    correct: 'b.) Claudius'
 },
 
 {
     question: 'Which Roman General defeated the Carthaginians in the First Punic War?',
-    questionOptions: ['Marcus Vipsanius', 'Gnaeus Julius Agricola', 'Diocletas', 'Scipio Africanus'],
-    correct: 'Scipio Africanus'
+    questionOptions: ['a.) Marcus Vipsanius', 'b.) Gnaeus Julius Agricola', 'c.) Diocletas', 'd.) Scipio Africanus'],
+    correct: 'd.) Scipio Africanus'
 },
 
 {
     question: 'Which modern day nation did the Roman General Gnaeus Julius Agricola Conquer?',
-    questionOptions: ['Norway', 'South Africa', 'France', 'Britain'],
-    correct: 'Britain'
+    questionOptions: ['a.) Norway', 'b.) South Africa', 'c.) France', 'd.) Britain'],
+    correct: 'd.) Britain'
 },
 
 {
     question: 'Nero Claudius Drusus was the First Roman General to mount successful campaigns east of what River?',
-    questionOptions: ['Rhine', 'Danube', 'Nile', 'Medes'],
-    correct: 'Rhine'
+    questionOptions: ['a.) Rhine', 'b.) Danube', 'c.) Nile', 'd.) Medes'],
+    correct: 'a.) Rhine'
 },
 
 {
     question: 'In what Manner did the Roman General Mark Antony Die?',
-    questionOptions: ['Old Age', 'Assassination', 'Suicide', 'Poison'],
-    correct: 'Suicide'
+    questionOptions: ['a.) Old Age', 'b.) Assassination', 'c.) Suicide', 'd.) Poison'],
+    correct: 'c.) Suicide'
 },
 
 {
     question: 'In what Manner did the Roman General Nero Claudius Drusus Die?',
-    questionOptions: ['Assassination', 'Falling from his horse', 'Slipping on a Wet Floor', 'Cuts from his Wife\'s Dagger'],
-    correct: 'Falling from his horse'
+    questionOptions: ['a.) Assassination', 'b.) Falling from his horse', 'c.) Slipping on a Wet Floor', 'd.) Cuts from his Wife\'s Dagger'],
+    correct: 'b.) Falling from his horse'
 },
 
 
@@ -97,7 +107,11 @@ function score() {
 // goes through the questions
 function generateQuestion() {
     let i = 0;
-    $("div.one").replaceWith(STORE[i]);
+    $(".questionQh").replaceWith(STORE[i].question);
+    $(".answerA").replaceWith(STORE[i].questionOptions[0]);
+    $(".answerB").replaceWith(STORE[i].questionOptions[1]);
+    $(".answerC").replaceWith(STORE[i].questionOptions[2]);
+    $(".answerD").replaceWith(STORE[i].questionOptions[3]);
     console.log(`generateQuestion ran`);
     $("p.question-status").replaceWith(`Question ${tally()} out of 10`);
     $("p.current-score").replaceWith(`Score is ${score()} out of 10`);
@@ -124,8 +138,7 @@ function selectAnswer() {
 
 function correct() {
     $("div.two").replaceWith(`
-        <a href="feedbackYES.html" type="submit" class="button" role="start-button">          Submit</a>
-        <input type="radio" type="submit" class="reset-button" role="unknown"><span> Reselect Answer </span>
+        <input type="button" value="Submit Answer" class="select-answer-right" role="submit-selected-answer">
         `);
         console.log('correct');
 
@@ -133,8 +146,7 @@ function correct() {
 
 function wrong() {
     $("div.two").replaceWith(`
-        <a href="feedbackNO.html" type="submit" class="button" role="start-button">          Submit</a>
-        <input type="radio" type="submit" class="reset-button" role="unknown"><span> Reselect Answer </span>
+        <input type="button" value="Submit Answer" class="select-answer-wrong" role="submit-selected-answer">
         `);
         console.log('not correct');
 };
