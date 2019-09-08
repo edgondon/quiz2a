@@ -26,61 +26,61 @@ STORE = [
 {
     question: 'Who was the first Roman Emperor?',
     questionOptions: ['a.) Julius Caesar', 'b.) Mark Antony', 'c.) Augustus', 'd.) Cleopatra'],
-    correct: 'c.) Augustus'
+    correct: 'c'
 },
 
 {
     question: 'Who was the longest serving Roman Emperor?',
     questionOptions: ['a.) Augustus', 'b.) Trajan', 'c.) Agrippa', 'd.) Constantine'],
-    correct: 'a.) Augustus'
+    correct: 'a'
 },
 
 {
     question: 'Who was the first Christian Roman Emperor?',
     questionOptions: ['a.) Maxentius', 'b.) Licinius I', 'c.) Vedius', 'd.) Constantine'],
-    correct: 'd.) Constantine'
+    correct: 'd'
 },
 
 {
     question: 'Which Emperor Initiated the Construction of the Colosseum?',
     questionOptions: ['a.) Titus', 'b.) Domitian', 'c.) Vespasian', 'd.) Toto'],
-    correct: 'c.) Vespasian'
+    correct: 'c'
 },
 
 {
     question: 'Which Emperor began the Conquest of Britain?',
     questionOptions: ['a.) Domitian', 'b.) Claudius', 'c.) Maxentius', 'd.) Agrippa'],
-    correct: 'b.) Claudius'
+    correct: 'b'
 },
 
 {
     question: 'Which Roman General defeated the Carthaginians in the First Punic War?',
     questionOptions: ['a.) Marcus Vipsanius', 'b.) Gnaeus Julius Agricola', 'c.) Diocletas', 'd.) Scipio Africanus'],
-    correct: 'd.) Scipio Africanus'
+    correct: 'd'
 },
 
 {
     question: 'Which modern day nation did the Roman General Gnaeus Julius Agricola Conquer?',
     questionOptions: ['a.) Norway', 'b.) South Africa', 'c.) France', 'd.) Britain'],
-    correct: 'd.) Britain'
+    correct: 'd'
 },
 
 {
     question: 'Nero Claudius Drusus was the First Roman General to mount successful campaigns east of what River?',
     questionOptions: ['a.) Rhine', 'b.) Danube', 'c.) Nile', 'd.) Medes'],
-    correct: 'a.) Rhine'
+    correct: 'a'
 },
 
 {
     question: 'In what Manner did the Roman General Mark Antony Die?',
     questionOptions: ['a.) Old Age', 'b.) Assassination', 'c.) Suicide', 'd.) Poison'],
-    correct: 'c.) Suicide'
+    correct: 'c'
 },
 
 {
     question: 'In what Manner did the Roman General Nero Claudius Drusus Die?',
     questionOptions: ['a.) Assassination', 'b.) Falling from his horse', 'c.) Slipping on a Wet Floor', 'd.) Cuts from his Wife\'s Dagger'],
-    correct: 'b.) Falling from his horse'
+    correct: 'b'
 },
 
 
@@ -122,7 +122,7 @@ function selectAnswer() {
     console.log(`ANSWER IS SELECTED`);
     let ya = $('input[name=option]:checked', '#gotcha').val();
     console.log(ya);
-    if (aa=(STORE[i].correct)) {
+    if (ya===(STORE[i].correct)) {
         correct();
         
     }
