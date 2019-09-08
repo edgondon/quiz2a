@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Quiz App</title>
+    <link href="main.css" rel="stylesheet" type="text/css" />
+  </head>
+  <!--Question Page-->
+  <body>
+        <section class="intro">
+                <header>
+                        <h1>Roman Emperors and Famous Generals</h1>
+                        <h2 class="maindescrip">A Set of Ten Questions upon the Subject</h2>
+                    </header>
+                    <img class="mainpic" src="https://c7.alamy.com/comp/MPX7DA/vercingetorix-throws-down-his-arms-at-the-feet-of-julius-caesar-1899-MPX7DA.jpg" alt="picture of roman ego" class="intro-picture">
+                    <main>
+                    
+                    <div class= "introduction-to-quiz">
+                        <a href="questions.html" class="button" role="start-button">  BeginQuiz</a>
+                    </div>
+                
+                
+                    </main>
+                
+
+
+
+        </section>
+
+
+
+
+
+        <section class="question-page">
+            <form>
+                    <!--question container-->
+                <div class="one">
+                    <h3>Who was the first Roman Emperor?</h3>
+                    <fieldset>
+                    <legend> Question 1</legend>
+                    <label>
+                        <!--Answers container-->
+                        <input type="radio" name="option" >
+                        <span> a.) Julius Caesar </span>
+                    </label>
+                    <label>
+                        <input type="radio" name="option" >
+                        <span> b.) Mark Antony </span>
+                    </label>
+                    <label>
+                        <input type="radio" name="option" >
+                        <span> c.) Augustus </span>
+                    </label>
+                    <label>
+                        <input type="radio" name="option" >
+                        <span> d.) Cleopatra </span>
+                    </label>
+                    </fieldset>
+                </div>
+                <div class="two">
+                
+                </div>
+            </form>
+        </section>
+
+        <section class="status-score">
+                    <!--Status container-->
+            <div class='status-container'>
+                <!--Question Circle-->
+                <div>
+                    <p class='question-status'>Question ${query} out of 10</p>
+                </div>
+                <!--Score Circle-->
+                <div class='score-circle'>
+                    <p class='current-score'>`Score is 0 out of 10`</p>
+                </div>
+
+        </section>
+
+
+
+
+
+
+
+
+        <section class="correct-feedback-page">
+                <div style="width:100%; height:400px;">
+                  <h2> Correct Answer</h2>
+                  <a href="end.html" class="button" role="start-button"> Next Question</a>
+                </div>
+        </section>
+
+
+
+
+
+
+        <section class="incorrect-feedback-page">
+            <div style="width:100%;height:400px;">
+                <h2 class="pressyWrong">Incorrect Answer. The answer is "c. Augustus"</h2>
+            <a href="end.html" class="button" role="start-button">   Proceed to Next Question..</a>
+            </div>
+        </section>
+
+
+
+
+
+        <section class="final-page">
+                <h2> TOTAL SCORE:</h2>
+                  <p> 1 out of 10 </p>
+                <a href="quiz.html" class="button" role="start-button">          Redo the Ten Questions...</a>
+            </section>
+
+
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>

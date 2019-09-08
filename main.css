@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+}
+
+.mainpic {
+    height: 400px;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.maindescrip {
+    width: 100%;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 50px;
+    font-size: 25px;
+    color: darkblue; 
+}
