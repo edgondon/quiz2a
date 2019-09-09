@@ -1,31 +1,10 @@
 
-$(document).ready( function() {
-    
-    console.log('ready');
-    $('.question-page').hide();
-    $('.status-score').hide();
-    $('.correct-feedback-page').hide();
-    $('.incorrect-feedback-page').hide();
-    $('.final-page').hide();
-
-});
-
-$('.button-startq').click(function () { //begin quiz and questions
-    $('.intro').hide();
-    $('.question-page').show();
-    $('.status-score').show();
-    generateQuestion();
-
-   
-});
-
-
 
 STORE = [
     
 {
-    question: 'Who was the first Roman Emperor?',
-    questionOptions: ['a.) Julius Caesar', 'b.) Mark Antony', 'c.) Augustus', 'd.) Cleopatra'],
+    question: 'Who was the first Roman Emperor?jj',
+    questionOptions: ['a.) Julius Caesarjj', 'b.) Mark Antonyjj', 'c.) Augustusjj', 'd.) Cleopatrajj'],
     correct: 'c'
 },
 
@@ -86,37 +65,66 @@ STORE = [
 ];
 
 
-query = 1;
-score = 0;
+var qey = ["one"];
+var tally = [];
+var k = [];
 
 
+var i = k.length;
+var query = qey.length;
+var score = tally.length;
 
-function tally() {
-    return query;
-};
 
-function core() {
-    return score;
-};
-
-let i = 0;
-let y = 2;
+var y = 2;
 
 // goes through the questions
+
+
+$(document).ready( function() {
+    
+    console.log('ready');
+    $('.question-page').hide();
+    $('.status-score').hide();
+    $('.correct-feedback-page').hide();
+    $('.incorrect-feedback-page').hide();
+    $('.final-page').hide();
+    
+
+
+
+$('.button-startq').click(function () { //begin quiz and questions
+    $('.intro').hide();
+    $('.question-page').show();
+    $('.status-score').show();
+
+   
+});
+
+
+
+
 function generateQuestion() {
+    var i = k.length;
+    var query = qey.length;
+    var score = tally.length;
     $(".questionQh").replaceWith(STORE[i].question);
     $(".answerA").replaceWith(STORE[i].questionOptions[0]);
     $(".answerB").replaceWith(STORE[i].questionOptions[1]);
     $(".answerC").replaceWith(STORE[i].questionOptions[2]);
     $(".answerD").replaceWith(STORE[i].questionOptions[3]);
     console.log(`generateQuestion ran`);
-    $("p.question-status").replaceWith(`Question ${tally()} out of 10`);
-    $("p.current-score").replaceWith(`Score is ${core()} out of 10`);
+    $("p.question-status").replaceWith(`Question ${query} out of 10`);
+    $("p.current-score").replaceWith(`Score is ${score} out of 10`);
+    console.log(`Question # ${query}`);
+    console.log(`Score is ${score}`);
+    console.log(`Store place is ${i}`);
 };
 
 
+
+
 function selectAnswer() {
-    $(".options").on('change', function (event) {
+    $("#gotcha").on('click', 'label', function (event) {
     console.log(`ANSWER IS SELECTED`);
     let ya = $('input[name=option]:checked', '#gotcha').val();
     console.log(ya);
@@ -136,12 +144,27 @@ function selectAnswer() {
 
 $('.question-page').on('click', '.select-answer-right', function () {
     $('.correct-feedback-page').show();
-    query ++;
-    score ++;
-    console.log(query);
-    console.log(score);
+    $('.question-page').hide();
+    $('.status-score').hide();
+    rr();
+    var i = k.length;
+    var query = qey.length;
+    var score = tally.length;
+    console.log(`Question # ${query}`);
+    console.log(`Score is ${score}`);
+    console.log(`Store place is ${i}`);
+    
+    
 
 });
+
+function rr() {
+    tally.push("one");
+    k.push("one");
+    qey.push("one");
+};
+
+
 
 $('.question-page').on('click', '.select-answer-wrong', function () {
     $('.correct-feedback-page').show();
@@ -160,7 +183,7 @@ $('.question-page').on('click', '.select-answer-wrong', function () {
 
 function correct() {
     $("div.two").replaceWith(`
-        <input type="button" value="Submit Answer" class="select-answer-right" role="submit-selected-answer">
+        <button type='button' class="select-answer-right" role="selected-answer">Submit Answer</button>
         `);
         let y = 1;
         console.log('correct');
@@ -170,7 +193,7 @@ function correct() {
 
 function wrong() {
     $("div.two").replaceWith(`
-        <input type="button" value="Submit Answer" class="select-answer-wrong" role="submit-selected-answer">
+        <button type='button' class="select-answer-wrong" role="selected-answer">Submit Answer</button>
         `);
         let y = 0;
         console.log('not correct');
@@ -179,12 +202,38 @@ function wrong() {
 
 
 
+$('.correct-feedback-page').on('click', '.buttonNextr', function () {
+      
+    $('.button-startq').off('click');
+    $("#gotcha").off('click');
+    $('.question-page').off('click');
+
+    if (i<10) {
+
+        generateQuestion();
+        $('.correct-feedback-page').hide();
+        $('.question-page').show();
+        $('.status-score').show();
+        
+        
+    }
+
+    else {
+        $('.final-page').show();
+    };
+    
+});
+
+
+
+
+
 
 function makeQuiz() {
-    selectAnswer();
     generateQuestion();
-    tally();
-    score();
+    selectAnswer();
     }
     
     $(makeQuiz);
+
+});

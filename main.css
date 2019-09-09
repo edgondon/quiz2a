@@ -50,7 +50,7 @@ body {
     cursor: pointer;
 }
 
-.select-answer-right {
+button.select-answer-right {
 background-color: turquoise;
 border: 1px solid black;
 color: black;
@@ -64,7 +64,7 @@ font-size: 16px;
 cursor: pointer;
 }
 
-.select-answer-wrong {
+button.select-answer-wrong {
 background-color: turquoise;
 border: 1px solid black;
 color: black;
@@ -76,4 +76,18 @@ margin: auto;
 padding: 5px;
 font-size: 16px;
 cursor: pointer;
+}
+
+.buttonNextr {
+    background-color: turquoise;
+    border: 1px solid black;
+    color: black;
+    margin-top: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    margin: auto;
+    padding: 5px;
+    font-size: 16px;
+    cursor: pointer;
 }
