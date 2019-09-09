@@ -83,26 +83,24 @@ STORE = [
     correct: 'b'
 },
 
-
 ];
 
 
-
+query = 1;
+score = 0;
 
 
 
 function tally() {
-    let query = 1;
     return query;
 };
 
-function score() {
-    let score = 0;
+function core() {
     return score;
 };
 
 let i = 0;
-
+let y = 2;
 
 // goes through the questions
 function generateQuestion() {
@@ -113,7 +111,7 @@ function generateQuestion() {
     $(".answerD").replaceWith(STORE[i].questionOptions[3]);
     console.log(`generateQuestion ran`);
     $("p.question-status").replaceWith(`Question ${tally()} out of 10`);
-    $("p.current-score").replaceWith(`Score is ${score()} out of 10`);
+    $("p.current-score").replaceWith(`Score is ${core()} out of 10`);
 };
 
 
@@ -136,11 +134,37 @@ function selectAnswer() {
 };
 
 
+$('.question-page').on('click', '.select-answer-right', function () {
+    $('.correct-feedback-page').show();
+    query ++;
+    score ++;
+    console.log(query);
+    console.log(score);
+
+});
+
+$('.question-page').on('click', '.select-answer-wrong', function () {
+    $('.correct-feedback-page').show();
+    query ++;
+    console.log(query);
+    console.log(score);
+
+});
+
+
+
+
+
+
+
+
 function correct() {
     $("div.two").replaceWith(`
         <input type="button" value="Submit Answer" class="select-answer-right" role="submit-selected-answer">
         `);
+        let y = 1;
         console.log('correct');
+        console.log(y);
 
 };
 
@@ -148,7 +172,9 @@ function wrong() {
     $("div.two").replaceWith(`
         <input type="button" value="Submit Answer" class="select-answer-wrong" role="submit-selected-answer">
         `);
+        let y = 0;
         console.log('not correct');
+        console.log(y);
 };
 
 
@@ -158,7 +184,7 @@ function makeQuiz() {
     selectAnswer();
     generateQuestion();
     tally();
-    submittedAnswer();
+    score();
     }
     
     $(makeQuiz);
