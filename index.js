@@ -5,81 +5,103 @@ STORE = [
     {
         question: 'Who was the first Roman Emperor?jj',
         questionOptions: ['a.) Julius Caesarjj', 'b.) Mark Antonyjj', 'c.) Augustusjj', 'd.) Cleopatrajj'],
-        correct: 'c'
+        correct: 'c',
+        corrdescript: 'c.) Augustus'
     },
 
     {
         question: 'Who was the longest serving Roman Emperor?',
         questionOptions: ['a.) Augustus', 'b.) Trajan', 'c.) Agrippa', 'd.) Constantine'],
-        correct: 'a'
+        correct: 'a',
+        corrdescript: 'a.) Augustus'
     },
 
     {
         question: 'Who was the first Christian Roman Emperor?',
         questionOptions: ['a.) Maxentius', 'b.) Licinius I', 'c.) Vedius', 'd.) Constantine'],
-        correct: 'd'
+        correct: 'd',
+        corrdescript: 'd.) Constantine'
     },
 
     {
         question: 'Which Emperor Initiated the Construction of the Colosseum?',
         questionOptions: ['a.) Titus', 'b.) Domitian', 'c.) Vespasian', 'd.) Toto'],
-        correct: 'c'
+        correct: 'c',
+        corrdescript: 'c.) Vespasian'
     },
 
     {
         question: 'Which Emperor began the Conquest of Britain?',
         questionOptions: ['a.) Domitian', 'b.) Claudius', 'c.) Maxentius', 'd.) Agrippa'],
-        correct: 'b'
+        correct: 'b',
+        corrdescript: 'c.) Claudius'
     },
 
     {
         question: 'Which Roman General defeated the Carthaginians in the First Punic War?',
         questionOptions: ['a.) Marcus Vipsanius', 'b.) Gnaeus Julius Agricola', 'c.) Diocletas', 'd.) Scipio Africanus'],
-        correct: 'd'
+        correct: 'd',
+        corrdescript: 'd.) Scipio Africanus'
     },
 
     {
         question: 'Which modern day nation did the Roman General Gnaeus Julius Agricola Conquer?',
         questionOptions: ['a.) Norway', 'b.) South Africa', 'c.) France', 'd.) Britain'],
-        correct: 'd'
+        correct: 'd',
+        corrdescript: 'd.) Britain'
     },
 
     {
         question: 'Nero Claudius Drusus was the First Roman General to mount successful campaigns east of what River?',
         questionOptions: ['a.) Rhine', 'b.) Danube', 'c.) Nile', 'd.) Medes'],
-        correct: 'a'
+        correct: 'a',
+        corrdescript: 'a.) Rhine'
     },
 
     {
         question: 'In what Manner did the Roman General Mark Antony Die?',
         questionOptions: ['a.) Old Age', 'b.) Assassination', 'c.) Suicide', 'd.) Poison'],
-        correct: 'c'
+        correct: 'c',
+        corrdescript: 'c.) Suicide'
     },
 
     {
         question: 'In what Manner did the Roman General Nero Claudius Drusus Die?',
         questionOptions: ['a.) Assassination', 'b.) Falling from his horse', 'c.) Slipping on a Wet Floor', 'd.) Cuts from his Wife\'s Dagger'],
-        correct: 'b'
+        correct: 'b',
+        corrdescript: 'b.) Falling from his horse'
     },
 
 
 
 ];
 
-var currentQuestion = 0;
+let currentQuestion = 0;
 
 
-var qey = ["one"];
-var tally = [];
-var k = [];
+let qey = ["one"];
+let tally = [];
+let k = [];
 
 
-var i = k.length;
-var query = qey.length;
-var score = tally.length;
+function i() {
+    return k.length;
+};
 
 
-var y = 2;
+
+function query() {
+    return qey.length;
+};
+
+function score() {
+    return tally.length;
+};
+
+
+
+
+let y = 2;
 
 // goes through the questions
 
@@ -116,11 +138,9 @@ $(document).ready(function () {
         $(".answerC").text(STORE[currentQuestion].questionOptions[2]);
         $(".answerD").text(STORE[currentQuestion].questionOptions[3]);
         // console.log(`generateQuestion ran`);
-        $("p.question-status").text(`Question ${query} out of 10`);
-        $("p.current-score").text(`Score is ${score} out of 10`);
-        // console.log(`Question # ${query}`);
-        // console.log(`Score is ${score}`);
-        // console.log(`Store place is ${i}`);
+        $("p.question-status").text(`Question ${query()} out of 10`);
+        $("p.current-score").text(`Score is ${score()} out of 10`);
+
     };
 
 
@@ -131,7 +151,7 @@ $(document).ready(function () {
             // console.log(`ANSWER IS SELECTED`);
             let ya = $('input[name=option]:checked', '#gotcha').val();
             // console.log(ya);
-            if (ya === (STORE[i].correct)) {
+            if (ya === (STORE[currentQuestion].correct)) {
                 correct();
 
             }
@@ -150,13 +170,6 @@ $(document).ready(function () {
         $('.question-page').hide();
         $('.status-score').hide();
         rr();
-        var i = k.length;
-        var query = qey.length;
-        var score = tally.length;
-        console.log(`Question # ${query}`);
-        console.log(`Score is ${score}`);
-        console.log(`Store place is ${i}`);
-
 
 
     });
@@ -167,13 +180,25 @@ $(document).ready(function () {
         qey.push("one");
     };
 
+    function ww() {
+        k.push("one");
+        qey.push("one");
+    };
+
 
 
     $('.question-page').on('click', '.select-answer-wrong', function () {
-        $('.correct-feedback-page').show();
-        query++;
-        // console.log(query);
-        // console.log(score);
+        $("h2.pressyWrong").html(`Incorrect Answer. The answer is ${STORE[currentQuestion].corrdescript}`);
+
+
+        $('.incorrect-feedback-page').show();
+
+        $('.question-page').hide();
+        $('.status-score').hide();
+        ww();
+
+
+
 
     });
 
@@ -206,10 +231,13 @@ $(document).ready(function () {
 
 
     $('.correct-feedback-page').on('click', '.buttonNextr', function () {
+        console.log(`Question # ${currentQuestion + 1}`);
+        console.log(`Score is ${score()}`);
+        console.log(`Store place is ${currentQuestion}`);
+        $('input[name="option"]').prop('checked', false);
 
 
-
-        if (i < 10) {
+        if (currentQuestion < 10) {
             currentQuestion++;
             generateQuestion(currentQuestion);
             $('.correct-feedback-page').hide();
@@ -225,7 +253,28 @@ $(document).ready(function () {
 
     });
 
+    $('.incorrect-feedback-page').on('click', '.buttonNextw', function () {
+        console.log(`Question # ${currentQuestion + 1}`);
+        console.log(`Score is ${score()}`);
+        console.log(`Store place is ${currentQuestion}`);
+        $('input[name="option"]').prop('checked', false);
 
+
+        if (currentQuestion < 10) {
+            currentQuestion++;
+            generateQuestion(currentQuestion);
+            $('.incorrect-feedback-page').hide();
+            $('.question-page').show();
+            $('.status-score').show();
+
+
+        }
+
+        else {
+            $('.final-page').show();
+        };
+
+    });
 
 
 
