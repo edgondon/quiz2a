@@ -10,10 +10,13 @@ h1 {
     width: 100%;
     text-align: center;
     font-size: 50px;
+    margin-top: 20px;
 }
 
 body {
     background-color: rgb(175, 240, 208);
+    display: flex;
+    flex-direction: column;
   }
 
 .mainpic {
@@ -54,7 +57,7 @@ button.select-answer-right {
 background-color: turquoise;
 border: 1px solid black;
 color: black;
-margin-top: 30px;
+padding-top: 30px;
 text-align: center;
 text-decoration: none;
 display: block;
@@ -68,7 +71,7 @@ button.select-answer-wrong {
 background-color: turquoise;
 border: 1px solid black;
 color: black;
-margin-top: 30px;
+padding-top: 30px;
 text-align: center;
 text-decoration: none;
 display: block;
@@ -82,7 +85,7 @@ button.buttonNextw {
     background-color: turquoise;
     border: 1px solid black;
     color: black;
-    margin-top: 30px;
+    padding-top: 25px;
     text-align: center;
     text-decoration: none;
     display: block;
@@ -96,7 +99,7 @@ button.buttonNextr {
     background-color: turquoise;
     border: 1px solid black;
     color: black;
-    margin-top: 30px;
+    padding-top: 25px;
     text-align: center;
     text-decoration: none;
     display: block;
@@ -104,6 +107,14 @@ button.buttonNextr {
     padding: 5px;
     font-size: 16px;
     cursor: pointer;
+}
+
+.spaceA {
+    margin-top: 25px;
+}
+
+.spaceB {
+    margin-top: 25px;
 }
 
 
@@ -121,9 +132,63 @@ button.buttonend {
     cursor: pointer;
 }
 
-questionQ {
-    width: 50%;
+.questionQh {
+    padding-bottom: 25px;
+    border: 1px solid green;
+    font-size: 25px;
+}
+
+.options {
+    padding-top: 25px;
+}
+
+.questionQ.options {
+    font: bold;
+}
+
+
+.questionQ {
+    width: 100%;
     display: block;
+    margin-top: 200px;
+    text-align: center;
+}
+
+.status-container {
+    max-width: 200px;
+    border: 1px solid blue;
     margin-left: auto;
-    margin-right: auto;   
+    margin-right: auto; 
+    text-align: center;
+    vertical-align: middle; 
+}
+
+.correct-feedback-page {
+    width: 100%;
+    display: block;
+    margin-top: 200px;
+    text-align: center;    
+}
+
+.incorrect-feedback-page {
+    width: 100%;
+    display: block;
+    margin-top: 200px;
+    text-align: center;    
+}
+
+.final-page {
+    width: 100%;
+    display: block;
+    margin-top: 200px;
+    text-align: center;    
+}
+
+.score-circle {
+    margin-top: 10px;
+}
+
+div.two {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

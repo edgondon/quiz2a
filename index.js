@@ -132,6 +132,7 @@ $(document).ready(function () {
     function generateQuestion(currentQuestion) {
         console.log(currentQuestion, `current question`);
         console.log(STORE[currentQuestion].question);
+        $("div.two").html(``);
         $(".questionQh").text(STORE[currentQuestion].question);
         $(".answerA").text(STORE[currentQuestion].questionOptions[0]);
         $(".answerB").text(STORE[currentQuestion].questionOptions[1]);
