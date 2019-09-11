@@ -3,8 +3,8 @@
 STORE = [
 
     {
-        question: 'Who was the first Roman Emperor?jj',
-        questionOptions: ['a.) Julius Caesarjj', 'b.) Mark Antonyjj', 'c.) Augustusjj', 'd.) Cleopatrajj'],
+        question: 'Who was the first Roman Emperor?',
+        questionOptions: ['a.) Julius Caesar', 'b.) Mark Antony', 'c.) Augustus', 'd.) Cleopatra'],
         correct: 'c',
         corrdescript: 'c.) Augustus'
     },
@@ -237,7 +237,7 @@ $(document).ready(function () {
         $('input[name="option"]').prop('checked', false);
 
 
-        if (currentQuestion < 10) {
+        if (currentQuestion < 9) {
             currentQuestion++;
             generateQuestion(currentQuestion);
             $('.correct-feedback-page').hide();
@@ -249,6 +249,8 @@ $(document).ready(function () {
 
         else {
             $('.final-page').show();
+            $('.finally').html(`${score()} out of 10`);
+            $('.correct-feedback-page').hide();
         };
 
     });
@@ -260,7 +262,7 @@ $(document).ready(function () {
         $('input[name="option"]').prop('checked', false);
 
 
-        if (currentQuestion < 10) {
+        if (currentQuestion < 9) {
             currentQuestion++;
             generateQuestion(currentQuestion);
             $('.incorrect-feedback-page').hide();
@@ -272,11 +274,21 @@ $(document).ready(function () {
 
         else {
             $('.final-page').show();
+            $('.finally').html(`${score()} out of 10`);
+            $('.incorrect-feedback-page').hide();
         };
 
     });
 
+    $('.final-page').on('click', '.buttonend', function () {
+        $("h2.pressyWrong").html(`Incorrect Answer. The answer is ${STORE[currentQuestion].corrdescript}`);
+        location.reload();
 
+
+
+
+
+    });
 
 
     function makeQuiz() {
